@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling specific directories (optional)
+Disallow: /admin/
+Disallow: /private/
+
+# Disallow specific files (optional)
+Disallow: /secret-file.html
+
+# Allow specific files within a disallowed directory (optional)
+Allow: /private/public-info.html
+
+# Sitemap location (optional but recommended)
+Sitemap: https://www.yourwebsite.com/sitemap.xml
