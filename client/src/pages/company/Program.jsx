@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../../utils/constant";
 
 const ProgramDetail = () => {
   const { menuId } = useParams(); // menuId dari URL
@@ -32,7 +33,7 @@ const ProgramDetail = () => {
         setLoading(true);
         // Ambil data program berdasarkan ID dari API
         const response = await axios.get(
-          `http://localhost:3000/api/programs/${programId}`
+          `${API_BASE_URL}/programs/${programId}`
         );
         setProgram(response.data); // Set data program yang diambil
       } catch (err) {

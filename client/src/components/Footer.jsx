@@ -1,4 +1,9 @@
-import { RiFacebookFill, RiInstagramFill, RiTiktokFill } from "react-icons/ri";
+import {
+  RiFacebookFill,
+  RiInstagramFill,
+  RiLinkedinFill,
+  RiWhatsappFill,
+} from "react-icons/ri";
 
 const Footer = () => {
   return (
@@ -26,15 +31,30 @@ const Footer = () => {
           <p className="text-base text-white">marketing.rumaharum@gmail.com</p>
           <p className="text-base text-white">0813-1086-2475</p>
           <div className="flex flex-row gap-2 mt-2">
-            <div className="p-2.5 bg-green-500 rounded-full h-fit w-fit">
+            <a
+              href="https://www.facebook.com/share/9Xi4X4kES7mpwJAH/?mibextid=qi2Omg"
+              className="p-2.5 bg-green-500 rounded-full h-fit w-fit"
+            >
               <RiFacebookFill className="text-xl text-white" />
-            </div>
-            <div className="p-2.5 bg-green-500 rounded-full h-fit w-fit">
+            </a>
+            <a
+              href="https://www.instagram.com/bsirumahharum/?next=%2F"
+              className="p-2.5 bg-green-500 rounded-full h-fit w-fit"
+            >
               <RiInstagramFill className="text-xl text-white" />
-            </div>
-            <div className="p-2.5 bg-green-500 rounded-full h-fit w-fit">
-              <RiTiktokFill className="text-xl text-white" />
-            </div>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/bsi-rumah-harum/posts/?feedView=all"
+              className="p-2.5 bg-green-500 rounded-full h-fit w-fit"
+            >
+              <RiLinkedinFill className="text-xl text-white" />
+            </a>
+            <a
+              href="https://wa.me/085311965509"
+              className="p-2.5 bg-green-500 rounded-full h-fit w-fit"
+            >
+              <RiWhatsappFill className="text-xl text-white" />
+            </a>
           </div>
         </div>
       </section>

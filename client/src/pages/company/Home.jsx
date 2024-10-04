@@ -17,6 +17,7 @@ import partnerts from "../../assets/partnerts/Group 12723.svg";
 import Slider from "react-slick"; // Import Slider dari react-slick
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { API_BASE_URL } from "../../utils/constant";
 
 const Home = () => {
   const [programs, setPrograms] = useState([]);
@@ -25,7 +26,7 @@ const Home = () => {
   useEffect(() => {
     // Fetch the programs data
     axios
-      .get("http://localhost:3000/api/programs")
+      .get(`${API_BASE_URL}/programs`)
       .then((response) => {
         setPrograms(response.data);
       })
@@ -37,7 +38,7 @@ const Home = () => {
   useEffect(() => {
     // Fetch the testimonals data
     axios
-      .get("http://localhost:3000/api/testimonials")
+      .get(`${API_BASE_URL}/testimonials`)
       .then((response) => {
         setTestimonials(response.data);
       })

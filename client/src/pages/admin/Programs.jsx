@@ -4,6 +4,7 @@ import axios from "axios";
 import CreateProgramMod from "../../mods/admin/program/CreateProgramMod";
 import UpdateProgramMod from "../../mods/admin/program/UpdateProgramMod";
 import ReadProgramMod from "../../mods/admin/program/ReadProgramMod"; // Import ReadProgramMod
+import { API_BASE_URL } from "../../utils/constant";
 
 const Program = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -17,7 +18,7 @@ const Program = () => {
   useEffect(() => {
     const fetchPrograms = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/programs");
+        const response = await axios.get(`${API_BASE_URL}/programs`);
         setPrograms(response.data);
         setLoading(false);
       } catch (err) {

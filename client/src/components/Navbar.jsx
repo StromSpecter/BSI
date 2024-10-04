@@ -1,28 +1,33 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  RiFacebookBoxFill,
   RiInstagramFill,
-  RiMailFill,
   RiMenu4Fill,
-  RiTiktokFill,
   RiCloseFill,
   RiArrowDownSFill,
   RiArrowUpSFill,
+  RiFacebookFill,
+  RiLinkedinFill,
+  RiWhatsappFill,
 } from "react-icons/ri";
 import logo from "../assets/logo.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isPublikasiDropdownOpen, setIsPublikasiDropdownOpen] = useState(false);
   const location = useLocation();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleDropdown = () => {
+  const toggleDropdownProgram = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleDropdownPublikasi = () => {
+    setIsPublikasiDropdownOpen(!isPublikasiDropdownOpen);
   };
 
   const isActive = (path) => {
@@ -43,10 +48,30 @@ const Navbar = () => {
             </p>
             <div className="flex flex-row items-center gap-2.5">
               <p className="text-xs font-medium">Contact Us :</p>
-              <RiMailFill />
-              <RiInstagramFill />
-              <RiFacebookBoxFill />
-              <RiTiktokFill />
+              <a
+                href="https://www.facebook.com/share/9Xi4X4kES7mpwJAH/?mibextid=qi2Omg"
+                className="h-fit w-fit"
+              >
+                <RiFacebookFill className="text-xl text-white" />
+              </a>
+              <a
+                href="https://www.instagram.com/bsirumahharum/?next=%2F"
+                className="h-fit w-fit"
+              >
+                <RiInstagramFill className="text-xl text-white" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/bsi-rumah-harum/posts/?feedView=all"
+                className="h-fit w-fit"
+              >
+                <RiLinkedinFill className="text-xl text-white" />
+              </a>
+              <a
+                href="https://wa.me/085311965509"
+                className="h-fit w-fit"
+              >
+                <RiWhatsappFill className="text-xl text-white" />
+              </a>
             </div>
           </div>
         </div>
@@ -76,7 +101,7 @@ const Navbar = () => {
                   className={`text-white flex items-center gap-1 px-4 py-1 ${
                     isActive("/program") ? "border-b-2 border-white" : ""
                   }`}
-                  onClick={toggleDropdown}
+                  onClick={toggleDropdownProgram}
                 >
                   Program
                   {isDropdownOpen ? (
@@ -109,12 +134,31 @@ const Navbar = () => {
                 )}
               </li>
 
-              <li
-                className={`text-white w-fit justify-center flex px-4 py-1 ${
-                  isActive("/publikasi") ? "border-b-2 border-white" : ""
-                }`}
-              >
-                <a href="/publikasi">Publikasi</a>
+              {/* Publikasi Dropdown */}
+              <li className="relative">
+                <button
+                  className={`text-white flex items-center gap-1 px-4 py-1 ${
+                    isActive("/publikasi") ? "border-b-2 border-white" : ""
+                  }`}
+                  onClick={toggleDropdownPublikasi}
+                >
+                  Publikasi
+                  {isPublikasiDropdownOpen ? (
+                    <RiArrowUpSFill className="ml-1" />
+                  ) : (
+                    <RiArrowDownSFill className="ml-1" />
+                  )}
+                </button>
+                {isPublikasiDropdownOpen && (
+                  <ul className="absolute z-10 w-48 mt-1 text-white bg-green-600 rounded-lg shadow-lg">
+                    <li className="px-4 py-2 rounded-t-lg hover:bg-green-700">
+                      <a href="/publikasi/kategori-sampah">Kategori Sampah</a>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-green-700">
+                      <a href="/publikasi/artikel">Artikel</a>
+                    </li>
+                  </ul>
+                )}
               </li>
             </ul>
 
@@ -174,7 +218,7 @@ const Navbar = () => {
             <li>
               <button
                 className="flex items-center w-full gap-1 px-5 py-2 rounded-md hover:bg-green-600"
-                onClick={toggleDropdown}
+                onClick={toggleDropdownProgram}
               >
                 Program
                 {isDropdownOpen ? (
@@ -207,12 +251,29 @@ const Navbar = () => {
               )}
             </li>
 
-            <li
-              className={`py-2 px-5 w-full hover:bg-green-600 rounded-md ${
-                isActive("/publikasi") ? "bg-white text-green-500" : ""
-              }`}
-            >
-              <a href="/publikasi">Publikasi</a>
+            {/* Publikasi Dropdown in Mobile */}
+            <li>
+              <button
+                className="flex items-center w-full gap-1 px-5 py-2 rounded-md hover:bg-green-600"
+                onClick={toggleDropdownPublikasi}
+              >
+                Publikasi
+                {isPublikasiDropdownOpen ? (
+                  <RiArrowUpSFill className="ml-1" />
+                ) : (
+                  <RiArrowDownSFill className="ml-1" />
+                )}
+              </button>
+              {isPublikasiDropdownOpen && (
+                <ul className="pl-0">
+                  <li className="px-5 py-2 rounded-md hover:bg-green-600">
+                    <a href="/publikasi/kategori-sampah">Kategori Sampah</a>
+                  </li>
+                  <li className="px-5 py-2 rounded-md hover:bg-green-600">
+                    <a href="/publikasi/artikel">Artikel</a>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
         </div>

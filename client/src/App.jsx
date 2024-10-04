@@ -10,10 +10,12 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRoute from "./middlewares/PrivateRoute";
 import Programs from "./pages/admin/Programs";
+import Testimonials from "./pages/admin/Testimonials";
+import KategoriSampah from "./pages/company/KategoriSampah";
+import Artikel from "./pages/company/Artikel";
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import Testimonials from "./pages/admin/Testimonials";
 
 
 const App = () => {
@@ -24,6 +26,9 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="about-us" element={<Aboutus />} />
         <Route path="program/:menuId" element={<Program />} />
+        <Route path="publikasi/kategori-sampah" element={<KategoriSampah />} />
+        <Route path="publikasi/kategori-sampah" element={<KategoriSampah />} />
+        <Route path="publikasi/artikel" element={<Artikel />} />
       </Route>
 
       {/* Rute untuk layout Admin, dilindungi oleh PrivateRoute */}
